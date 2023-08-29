@@ -1,4 +1,4 @@
-package sample
+package irotsukegakari
 
 import (
 	"testing"
@@ -8,29 +8,24 @@ import (
 
 func TestDouble(t *testing.T) {
 	type args struct {
-		n int
+		s string
 	}
 
 	tests := []struct {
 		name string
 		args args
-		want int
+		want string
 	}{
 		{
-			name: "normal1",
-			args: args{n: 1},
-			want: 2,
-		},
-		{
-			name: "normal2",
-			args: args{n: 2},
-			want: 5,
+			name: "red",
+			args: args{s: "This is usagi-san."},
+			want: "\\e[30This is usagi-san.\\e[0m",
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if diff := cmp.Diff(tt.want, double(tt.args.n)); diff != "" {
+			if diff := cmp.Diff(tt.want, irotsuke(tt.args.s)); diff != "" {
 				t.Error(diff)
 			}
 		})

@@ -10,12 +10,14 @@ const (
 )
 
 func irotsuke(s string, c Color) string {
-	switch c {
-	case Black:
-		return "\\e[30" + s + "\\e[0m"
-	case Red:
-		return "\\e[31" + s + "\\e[0m"
-	default:
-		return s
+	m := map[Color]string{
+		Black: "30",
+		Red:   "31",
 	}
+
+	if val, ok := m[c]; ok {
+		return "\\e[" + val + s + "\\e[0m"
+	}
+
+	return s
 }

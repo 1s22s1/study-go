@@ -14,12 +14,17 @@ func TestArithmeticMean(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want int
+		want float64
 	}{
 		{
 			name: "normal1",
 			args: args{x: []int{1, 2, 3}},
 			want: 2,
+		},
+		{
+			name: "normal2",
+			args: args{x: []int{1, 2, 2}},
+			want: 1.66,
 		},
 	}
 

@@ -1,11 +1,11 @@
 package doguu
 
-func arithmeticMean(x []int) int {
+func arithmeticMean(x []int) float64 {
 	sum := 0
 
 	for _, n := range x {
 		sum += n
 	}
 
-	return sum / len(x)
+	return float64(sum) / float64(len(x))
 }

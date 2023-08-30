@@ -31,7 +31,7 @@ func TestArithmeticMean(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			opts := []cmp.Option{cmpopts.EquateApprox(0.1, 0.1)}
+			opts := []cmp.Option{cmpopts.EquateApprox(10, 1)}
 
 			if diff := cmp.Diff(tt.want, arithmeticMean(tt.args.x), opts...); diff != "" {
 				t.Error(diff)

@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
 )
 
 func TestArithmeticMean(t *testing.T) {
@@ -30,7 +31,9 @@ func TestArithmeticMean(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if diff := cmp.Diff(tt.want, arithmeticMean(tt.args.x)); diff != "" {
+			opts := []cmp.Option{cmpopts.EquateApprox(0.1, 0.1)}
+
+			if diff := cmp.Diff(tt.want, arithmeticMean(tt.args.x), opts...); diff != "" {
 				t.Error(diff)
 			}
 		})

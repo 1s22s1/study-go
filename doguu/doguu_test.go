@@ -8,7 +8,7 @@ import (
 
 func TestArithmeticMean(t *testing.T) {
 	type args struct {
-		n int
+		x []int
 	}
 
 	tests := []struct {
@@ -17,15 +17,15 @@ func TestArithmeticMean(t *testing.T) {
 		want int
 	}{
 		{
-			name: "black",
-			args: args{n: 3},
-			want: 3,
+			name: "normal1",
+			args: args{x: []int{1, 2, 3}},
+			want: 2,
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if diff := cmp.Diff(tt.want, arithmeticMean(tt.args.n)); diff != "" {
+			if diff := cmp.Diff(tt.want, arithmeticMean(tt.args.x)); diff != "" {
 				t.Error(diff)
 			}
 		})

@@ -39,3 +39,31 @@ func TestArithmeticMean(t *testing.T) {
 		})
 	}
 }
+
+func TestGeometricMean(t *testing.T) {
+	type args struct {
+		x []float64
+	}
+
+	tests := []struct {
+		name string
+		args args
+		want float64
+	}{
+		{
+			name: "normal",
+			args: args{x: []float64{1.1, 1.05, 1.03}},
+			want: 1.06,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			opts := []cmp.Option{cmpopts.EquateApprox(10, 1)}
+
+			if diff := cmp.Diff(tt.want, geometricMean(tt.args.x), opts...); diff != "" {
+				t.Error(diff)
+			}
+		})
+	}
+}

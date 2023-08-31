@@ -2,8 +2,8 @@ package doguu
 
 import "math"
 
-func arithmeticMean(x []int) float64 {
-	sum := 0
+func arithmeticMean(x []float64) float64 {
+	sum := 0.0
 
 	for _, v := range x {
 		sum += v

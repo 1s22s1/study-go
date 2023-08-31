@@ -9,7 +9,7 @@ import (
 
 func TestArithmeticMean(t *testing.T) {
 	type args struct {
-		x []int
+		x []float64
 	}
 
 	tests := []struct {
@@ -19,12 +19,12 @@ func TestArithmeticMean(t *testing.T) {
 	}{
 		{
 			name: "normal1",
-			args: args{x: []int{1, 2, 3}},
+			args: args{x: []float64{1, 2, 3}},
 			want: 2,
 		},
 		{
 			name: "normal2",
-			args: args{x: []int{1, 2, 2}},
+			args: args{x: []float64{1, 2, 2}},
 			want: 1.66,
 		},
 	}

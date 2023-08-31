@@ -3,13 +3,13 @@ package doguu
 import "math"
 
 func arithmeticMean(x []float64) float64 {
-	sum := 0.0
+	n := 0.0
 
 	for _, v := range x {
-		sum += v
+		n += v
 	}
 
-	return float64(sum) / float64(len(x))
+	return float64(n) / float64(len(x))
 }
 
 func geometricMean(x []float64) float64 {
@@ -23,5 +23,11 @@ func geometricMean(x []float64) float64 {
 }
 
 func harmonicMean(x []float64) float64 {
-	return float64(1)
+	n := 0.0
+
+	for _, v := range x {
+		n += (1.0 / v)
+	}
+
+	return float64(len(x)) / n
 }

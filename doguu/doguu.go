@@ -21,3 +21,7 @@ func geometricMean(x []float64) float64 {
 
 	return math.Pow(n, 1.0/float64(len(x)))
 }
+
+func harmonicMean(x []float64) float64 {
+	return float64(1)
+}

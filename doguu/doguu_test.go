@@ -67,3 +67,31 @@ func TestGeometricMean(t *testing.T) {
 		})
 	}
 }
+
+func TestHamonicMean(t *testing.T) {
+	type args struct {
+		x []float64
+	}
+
+	tests := []struct {
+		name string
+		args args
+		want float64
+	}{
+		{
+			name: "normal",
+			args: args{x: []float64{20, 30}},
+			want: 24,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			opts := []cmp.Option{cmpopts.EquateApprox(10, 1)}
+
+			if diff := cmp.Diff(tt.want, harmonicMean(tt.args.x), opts...); diff != "" {
+				t.Error(diff)
+			}
+		})
+	}
+}

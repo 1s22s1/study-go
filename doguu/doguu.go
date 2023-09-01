@@ -31,3 +31,15 @@ func harmonicMean(x []float64) float64 {
 
 	return float64(len(x)) / n
 }
+
+func variance(x []float64) float64 {
+	n := 0.0
+	mean := arithmeticMean(x)
+
+	for _, v := range x {
+		n += (v - mean) * (v - mean)
+	}
+
+	return n / float64(len(x))
+
+}
